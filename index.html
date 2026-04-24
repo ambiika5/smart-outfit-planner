@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Outfit Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>🧳 Smart Outfit Planner</h1>
+        <button id="darkToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Upload Section -->
+        <section class="upload-section" aria-labelledby="upload-title">
+            <h2 id="upload-title">Upload Clothes</h2>
+            <div class="upload-form">
+                <input type="file" id="imageInput" accept="image/*">
+                <select id="categorySelect">
+                    <option value="">Category</option>
+                    <option value="top">Top</option>
+                    <option value="bottom">Bottom</option>
+                    <option value="dress">Dress</option>
+                    <option value="shoes">Shoes</option>
+                    <option value="accessory">Accessory</option>
+                </select>
+                <input type="text" id="colorInput" placeholder="Color (e.g., blue, red)" maxlength="20">
+                <input type="text" id="occasionInput" placeholder="Occasions (comma-separated, e.g., casual,party)" maxlength="50">
+                <button id="uploadBtn">Add to Wardrobe</button>
+            </div>
+            <div id="preview" class="preview hidden"></div>
+        </section>
+
+        <!-- Outfit Builder -->
+        <section class="builder-section" aria-labelledby="builder-title">
+            <h2 id="builder-title">Mix & Match Outfit</h2>
+            <div class="outfit-slots">
+                <div class="slot" data-slot="top"><span>Top</span></div>
+                <div class="slot" data-slot="bottom"><span>Bottom</span></div>
+                <div class="slot" data-slot="shoes"><span>Shoes</span></div>
+                <div class="slot" data-slot="accessory"><span>Accessory</span></div>
+            </div>
+            <div class="builder-actions">
+                <button id="randomBtn">🎲 Random Outfit</button>
+                <button id="clearBtn">Clear</button>
+                <input type="text" id="outfitName" placeholder="Outfit name">
+                <button id="saveOutfit">💾 Save Outfit</button>
+            </div>
+        </section>
+
+        <!-- Wardrobe Section -->
+        <section class="wardrobe-section" aria-labelledby="wardrobe-title">
+            <h2 id="wardrobe-title">Your Wardrobe</h2>
+            <div class="filters">
+                <select id="filterCategory">
+                    <option value="">All Categories</option>
+                    <option value="top">Tops</option>
+                    <option value="bottom">Bottoms</option>
+                    <option value="dress">Dresses</option>
+                    <option value="shoes">Shoes</option>
+                    <option value="accessory">Accessories</option>
+                </select>
+                <select id="filterColor">
+                    <option value="">All Colors</option>
+                </select>
+                <input type="text" id="searchInput" placeholder="Search...">
+            </div>
+            <div id="wardrobeGrid" class="wardrobe-grid"></div>
+        </section>
+
+        <!-- Suggestions Section -->
+        <section class="suggestions-section" aria-labelledby="suggestions-title">
+            <h2 id="suggestions-title">Occasion Suggestions</h2>
+            <div class="occasion-buttons">
+                <button class="occasion-btn" data-occasion="casual">Casual</button>
+                <button class="occasion-btn" data-occasion="party">Party</button>
+                <button class="occasion-btn" data-occasion="office">Office</button>
+                <button class="occasion-btn" data-occasion="wedding">Wedding</button>
+                <button class="occasion-btn" data-occasion="ethnic">Ethnic</button>
+            </div>
+            <div id="suggestionDisplay" class="outfit-preview"></div>
+        </section>
+
+        <!-- Saved Outfits -->
+        <section class="saved-section" aria-labelledby="saved-title">
+            <h2 id="saved-title">Saved Outfits</h2>
+            <div id="savedOutfits" class="saved-grid"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
